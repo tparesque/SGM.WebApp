@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contents {
+    <link href="~/css/datatable.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Consulta Salários Servidores</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Consulta Salários Servidores</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="nome" class="col-form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" data-bind="value: filtros().nome" placeholder="Informe o nome">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="matricula" class="col-form-label">Matrícula</label>
+                <input type="text" class="form-control" id="matricula" data-bind="value: filtros().matricula" placeholder="Informe a matrícula">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="mesReferencia" class="col-form-label">Mês</label>
+                <input type="text" class="form-control" id="mesReferencia" data-bind="value: filtros().mesReferencia" placeholder="Informe o Mês">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="anoReferencia" class="col-form-label">Ano</label>
+                <input type="text" class="form-control" id="anoReferencia" data-bind="value: filtros().anoReferencia" placeholder="Informe o Ano">
+            </div>
+            <div class="form-group col-md-1 form-inline align-items-end">
+                <button type="button" class="btn btn-primary" data-bind="click: consultarSalarios">Consultar</button>
+            </div>
+            <div class="form-group col-md-1 form-inline align-items-end">
+                <button type="button" class="btn btn-secondary" data-bind="click: limpar">Limpar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table id="datatable-salarios" class="table table-striped dt-responsive nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>Matrícula</th>
+                                    <th>Nome</th>
+                                    <th>Lotação</th>
+                                    <th>Mês</th>
+                                    <th>Ano</th>
+                                    <th>Bruto</th>
+                                    <th>Descontos</th>
+                                    <th>Liquido</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: salarios">
+                                <tr>
+                                    <td data-bind="text: matricula"></td>
+                                    <td data-bind="text: nome"></td>
+                                    <td data-bind="text: lotacao"></td>
+                                    <td data-bind="text: mesReferencia"></td>
+                                    <td data-bind="text: anoReferencia"></td>
+                                    <td data-bind="text: remuneracaoBruta"></td>
+                                    <td data-bind="text: descontos"></td>
+                                    <td data-bind="text: remuneracaoLiquida"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/js/datatable.min.js"></script>
+    <script src="~/js/consultaSalario.min.js"></script>
+}

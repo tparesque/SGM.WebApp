@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contents {
+    <link href="~/css/datatable.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Isenção IPTU</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Isenção IPTU</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="float-right">
+            <a asp-controller="IsencaoIPTU" asp-action="Cadastro" class="btn btn-primary waves-effect waves-light mb-3">
+                <i class="fa fa-plus-circle mr-1"></i> Novo
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table id="datatable-solicitacao-isencaoIPTU" class="table table-striped dt-responsive nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>Número Solicitacao</th>
+                                    <th>Usuário</th>
+                                    <th>Matrícula</th>
+                                    <th>Data Cadastro</th>
+                                    <th>Situação</th>
+                                    <th>Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: solicitacoes">
+                                <tr>
+                                    <td data-bind="text: solicitacaoId"></td>
+                                    <td data-bind="text: usuarioNome"></td>
+                                    <td data-bind="text: matricula"></td>
+                                    <td data-bind="text: dataCadastro"></td>
+                                    <td data-bind="text: situacaoNome"></td>
+									<td>
+										<button id="btnVisualizar" type="button" class="btn btn-info waves-effect waves-light" title="Visualizar" data-bind="value: solicitacaoId"><i class="mdi mdi-eye-outline"></i></button>
+									</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/js/datatable.min.js"></script>
+    <script src="~/js/isencaoIPTU.min.js"></script>
+}

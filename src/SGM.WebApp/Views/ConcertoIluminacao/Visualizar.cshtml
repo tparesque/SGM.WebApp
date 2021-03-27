@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contents {
+
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Visualizar Solicitação Concerto de Iluminação</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Visualizar</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body" data-bind="with:solicitacao">
+
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label>Solicitação:</label><br />
+                        <span class="text-muted" data-bind="text: solicitacaoId"></span>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>Nome Solicitante:</label><br />
+                        <span class="text-muted" data-bind="text: usuarioNome"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label>Data Solicitação:</label><br />
+                        <span class="text-muted" data-bind="text: dataCadastro"></span>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>Situação:</label><br />
+                        <span class="text-muted" data-bind="text: situacaoNome"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12">
+                        <label>Detalhes da Solicitação:</label><br />
+                        <span class="text-muted" data-bind="text: observacao"></span>
+                    </div>
+                </div>
+
+                <h5 class="mb-3 text-uppercase p-2"> Endereço</h5>
+
+                <div class="form-group">
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label>Logradouro:</label><br />
+                            <span class="text-muted" data-bind="text: logradouro"></span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Número:</label><br />
+                            <span class="text-muted" data-bind="text: numero"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label>CEP:</label><br />
+                            <span class="text-muted" data-bind="text: cep"></span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Bairro:</label><br />
+                            <span class="text-muted" data-bind="text: bairro"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label>Estado:</label><br />
+                            <span class="text-muted" data-bind="text: estadoNome"></span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Município:</label><br />
+                            <span class="text-muted" data-bind="text: municipioNome"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label>Complemento:</label><br />
+                            <span class="text-muted" data-bind="text: complemento"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="mb-3 text-uppercase p-2"> Históricos</h5>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered mb-0 col-md-8">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Situação</th>
+                                <th>Usuário Alteração</th>
+                                <th>Data Alteração</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: historicoSolicitacoes">
+                            <tr>
+                                <td data-bind="text: situacaoNome"></td>
+                                <td data-bind="text: usuarioAlteracaoNome"></td>
+                                <td data-bind="text: dataAlteracao"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group float-right">
+                    <button type="button" class="btn btn-secondary mr-1" data-bind="click: $parent.voltar">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/js/concertoIluminacaoVisualizar.min.js"></script>
+}

@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contents {
+    
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Solicitação de Isenção IPTU</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-controller="IsencaoIPTU" asp-action="Index">Isenção IPTU</a></li>
+                    <li class="breadcrumb-item active">Cadastrar</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <form data-bind="with:solicitacao">
+                    <h5 class="mb-3 text-uppercase bg-light p-2"> Detalhes da Solicitação</h5>
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="matricula" class="col-form-label">Matrícula do Imóvel<span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="matricula" data-bind="value: matricula" placeholder="Informe a Matrícula do Imóvel">
+						</div>
+						@*<div class="form-group col-md-6">
+							<label for="anoExercicio" class="col-form-label">Ano do Exercício do IPTU<span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="anoExercicio" data-bind="value: anoExercicio" placeholder="Informe o Ano do Exercício do IPTU">
+						</div>*@
+
+					</div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            @* <label for="observacao" class="col-form-label">Observações</label>*@
+                            <textarea class="form-control" id="observacao" rows="5" data-bind="value: observacao" placeholder="Informe os detalhes da solicitação"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group float-right">
+                        <button type="button" class="btn btn-secondary mr-1" data-bind="click: $parent.voltar">Voltar</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: $parent.salvar, disable: $parent.bloqueiaSalvar()">Salvar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {   
+    <script src="~/js/isencaoIPTUCadastro.min.js"></script>
+}

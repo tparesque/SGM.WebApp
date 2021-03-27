@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contents {
+    
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Cadastro de Concerto de Iluminação</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-controller="ConcertoIluminacao" asp-action="Index">Concerto de Iluminação</a></li>
+                    <li class="breadcrumb-item active">Cadastrar</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <form data-bind="with:solicitacao">
+                    <h5 class="mb-3 text-uppercase bg-light p-2"> Detalhes da Solicitação</h5>                   
+                    <div class="form-row">
+                        <div class="form-group col-md-12">                           
+                            <textarea class="form-control" id="observacao" rows="5" data-bind="value: observacao" placeholder="Informe os detalhes da solicitação"></textarea>
+                        </div>                       
+                    </div>                   
+
+                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-home-city mr-1"></i> Informações de Endereço</h5>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="logradouro" class="col-form-label">Logradouro<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="logradouro" data-bind="value: logradouro" placeholder="Informe o logradouro">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="numero" class="col-form-label">Número<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="numero" data-bind="value: numero" placeholder="Informe o número">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="cep" class="col-form-label">CEP<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="cep" maxlength="8" data-bind="value: cep" placeholder="Informe o cep">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="bairro" class="col-form-label">Bairro<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="bairro" data-bind="value: bairro" placeholder="Informe o bairro">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="complemento" class="col-form-label">Complemento</label>
+                            <input type="text" class="form-control" id="complemento" data-bind="value: complemento" placeholder="Informe o Complemento">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="estado" class="col-form-label">Estado<span class="text-danger">*</span></label>
+                            <select id="estado" class="form-control" data-toggle="select2"
+                                    data-bind="value: estadoId, options: $root.estados, optionsText: 'nome', optionsValue: 'estadoId', valueAllowUnset: true, select2: { placeholder: 'Selecione um estado', tags: false }">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="municipio" class="col-form-label">Município<span class="text-danger">*</span></label>
+                            <select id="municipio" class="form-control" data-toggle="select2"
+                                    data-bind="value: municipioId, options: $root.municipios, optionsText: 'nome', optionsValue: 'municipioId', valueAllowUnset: true, select2: { placeholder: 'Selecione um município', tags: false }">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group float-right">
+                        <button type="button" class="btn btn-secondary mr-1" data-bind="click: $parent.voltar">Voltar</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: $parent.salvar, disable: $parent.bloqueiaSalvar()">Salvar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {   
+    <script src="~/js/concertoIluminacaoCadastro.min.js"></script>
+}
