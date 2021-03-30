@@ -15,12 +15,12 @@ pages.login.services = function () {
     }  
 
     var salvar = function (parametro) {
-        var url = pages.metadata.actionUrl("/api/authentication");
+        var url = pages.metadata.actionUrl("/api/gateway/autenticacao");
         return pages.dataServices.postAjax(url, parametro);
     }
 
     var recuperarSenha = function (parametro) {
-        var url = pages.metadata.actionUrl("/api/authentication/enviar-email-recuperacao-senha");
+        var url = pages.metadata.actionUrl("/api/gateway/autenticacao/enviar-email-recuperacao-senha");
         return pages.dataServices.postAjax(url, parametro);
     }    
 
