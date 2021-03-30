@@ -11,42 +11,42 @@ pages.concertoIluminacao.services = function () {
     };  
 
     var obterTodos = function () {
-        var url = pages.metadata.actionUrl("/api/solicitacaoReparo");
+        var url = pages.metadata.actionUrl("/api/gateway/solicitacaoReparo");
         return pages.dataServices.get(url);
     }
 
     var obterSolicitacaoId = function (solicitacaoId) {
-        var url = pages.metadata.actionUrl("/api/solicitacaoReparo/" + solicitacaoId);
+        var url = pages.metadata.actionUrl("/api/gateway/solicitacaoReparo/" + solicitacaoId);
         return pages.dataServices.get(url);
     }
 
     var salvar = function (parametro) {
-        var url = pages.metadata.actionUrl("/api/solicitacaoReparo");
+        var url = pages.metadata.actionUrl("/api/gateway/solicitacaoReparo");
         return pages.dataServices.postAjax(url, parametro);
     }  
 
     var deletar = function (solicitacaoId) {
-        var url = pages.metadata.actionUrl("/api/solicitacaoReparo/" + solicitacaoId);
+        var url = pages.metadata.actionUrl("/api/gateway/solicitacaoReparo/" + solicitacaoId);
         return pages.dataServices.deleteAjax(url);
     }
 
     var iniciarAtendimento = function (solicitacaoId, parametro) {
-        var url = pages.metadata.actionUrl("/api/solicitacaoReparo/" + solicitacaoId + "/iniciarAtendimento");
+        var url = pages.metadata.actionUrl("/api/gateway/solicitacaoReparo/" + solicitacaoId + "/iniciarAtendimento");
         return pages.dataServices.putAjax(url, parametro);
     }
 
     var finalizarAtendimento = function (solicitacaoId, parametro) {
-        var url = pages.metadata.actionUrl("/api/solicitacaoReparo/" + solicitacaoId + "/finalizarAtendimento");
+        var url = pages.metadata.actionUrl("/api/gateway/solicitacaoReparo/" + solicitacaoId + "/finalizarAtendimento");
         return pages.dataServices.putAjax(url, parametro);
     } 
 
     var obterMunicipioPorEstadoId = function (estadoId) {
-        var url = pages.metadata.actionUrl("/api/municipios/estado/" + estadoId);
+        var url = pages.metadata.actionUrl("/api/gateway/municipios/estado/" + estadoId);
         return pages.dataServices.get(url);
     }
 
     var obterEstados = function () {
-        var url = pages.metadata.actionUrl("/api/estados");
+        var url = pages.metadata.actionUrl("/api/gateway/estados");
         return pages.dataServices.get(url);
     }
 
