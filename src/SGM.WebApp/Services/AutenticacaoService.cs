@@ -45,7 +45,7 @@ namespace SGM.WebApp.Services
         public async Task<Result<UsuarioRespostaLogin>> Login(UsuarioLogin usuarioLogin)
         {
             var loginContent = new StringContent(JsonSerializer.Serialize(usuarioLogin), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/authentication/login", loginContent);
+            var response = await _httpClient.PostAsync("/api/gateway/autenticacao/login", loginContent);
 
             return await DeserializarObjetoResponse<Result<UsuarioRespostaLogin>>(response);
         }      
