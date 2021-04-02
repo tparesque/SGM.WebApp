@@ -6,7 +6,7 @@ var binding = document.getElementById("binding");
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     URL_API = "http://localhost:5003";
     URL_SITE = "http://localhost:5001";
-} else if (location.hostname === "sgm-load-balancer-386166249.us-east-1.elb.amazonaws.com") {
+} else if (location.hostname === "sgm.paresque.com") {
     URL_API = "http://sgm.paresque.com";
     URL_SITE = "http://sgm.paresque.com";
 }
