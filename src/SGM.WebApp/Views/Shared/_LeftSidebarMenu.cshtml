@@ -40,9 +40,11 @@
                             <li>
                                 <a asp-controller="ConcertoIluminacao" asp-action="Index"><span>Concerto de Iluminação</span></a>
                             </li>
+                            <!-- ko if:  exibeMenuIsencaoIPTU -->
                             <li>
                                 <a asp-controller="IsencaoIPTU" asp-action="Index"><span>Isenção de IPTU</span></a>
                             </li>
+                            <!-- /ko-->
                             <li>
                                 <a asp-controller="ConsultaSalario" asp-action="Index"><span>Consulta Salários</span></a>
                             </li>

@@ -82,6 +82,20 @@ pages.menu.viewModel = function () {
             return false;
         });
 
+        self.exibeMenuIsencaoIPTU = ko.computed(function () {
+            if (self.usuarioLogado() &&
+                (
+                self.usuarioLogado().perfil() === service.EPerfil.ADMINISTRADOR ||
+                self.usuarioLogado().perfil() === service.EPerfil.GESTOR ||
+                self.usuarioLogado().perfil() === service.EPerfil.USUARIO
+                ))
+                return true;
+
+            return false;
+        });
+
+        
+
         
     };
 
