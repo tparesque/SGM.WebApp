@@ -31,7 +31,6 @@ namespace SGM.WebApp.Configuration
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
